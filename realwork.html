@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>realwork.pl</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+    padding-top: 150px; /* Odstęp odpowiadający wysokości nawigacji */
+}
+section, div[id] {
+        scroll-margin-top: 150px; /* Wartość odpowiadająca wysokości nagłówka */
+    }
+/* Stylizacja dla nagłówka i logo */
+.navbar {
+    background-color: #f3f3eb !important; /* Jasnoszary kolor tła */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Cień dla oddzielenia od reszty strony */
+    flex-direction: column;
+    padding: 0px 0; /* Zmniejsz odstępy wewnątrz nawigacji */
+}
+
+.navbar .navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px; /* Zmniejsz margines pod logo */
+}
+
+.navbar-brand img {
+    max-height: 120px; /* Zwiększ wysokość logo */
+    max-width: auto; /* Logo zachowuje proporcje */
+}
+
+.nav-link {
+    margin: 0 10px;
+    font-size: 18px;
+    color: #000000; /* Czarny kolor tekstu */
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #007bff; /* Niebieski kolor tekstu po najechaniu */
+}
+
+.flag-icon {
+    width: 40px; /* Zwiększenie szerokości flagi */
+    height: 30px; /* Zwiększenie wysokości flagi */
+    margin: 2px 5px; /* Większe odstępy między flagami */
+    cursor: pointer; /* Wskaźnik wskazujący możliwość kliknięcia */
+    border: 1.6px solid #000000; /* Czarny kontur wokół flag */
+    border-radius: 13px; /* Lekko zaokrąglone rogi flag */
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2); /* Opcjonalny cień dla estetyki */
+}
+
+.position-absolute {
+    top: 20px; /* Oddalenie od góry */
+    right: 20px; /* Oddalenie od prawej */
+}
+
+#onas {
+    margin-top: 0; /* Usuń margines nad sekcją */
+    padding-top: 20px; /* Dodaj odstęp na górze sekcji */
+}
+#onas h1 {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#onas p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333333; /* Kolor tekstu */
+    margin-top: 30px; /* Odstęp od tytułu */
+}
+
+/* Stylizacja dla zdjęć w galerii */
+#galeria img {
+    margin-top: 10px; /* Dostosowanie marginesu sekcji poniżej */
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Stylizacja dla zdjęć w sekcji Kontakt */
+#kontakt img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Nawigacja -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <!-- Ikony języków w prawym górnym rogu -->
+        <div class="position-absolute">
+            <img src="images/pl.png" alt="Polska" class="flag-icon" onclick="changeLanguage('pl')">
+            <img src="images/ua.png" alt="Ukraina" class="flag-icon" onclick="changeLanguage('uk')">
+            <img src="images/de.png" alt="Niemcy" class="flag-icon" onclick="changeLanguage('de')">
+        </div>
+
+        <!-- Linki szybkiego dostępu -->
+        <div class="navbar-nav">
+            <a class="nav-link" href="#onas">O nas</a>
+            <a class="nav-link" href="#uslugi">Usługi</a>
+            <a class="nav-link" href="#praca">Praca</a>
+            <a class="nav-link" href="#galeria">Galeria</a>
+            <a class="nav-link" href="#kontakt">Kontakt</a>
+        </div>
+
+        <!-- Logo pośrodku -->
+        <a class="navbar-brand" href="#">
+            <img src="images/realwork.jpg" alt="Logo RealWork" class="img-fluid">
+        </a>
+    </nav>
+    
+<!-- Sekcje strony -->
+<div id="onas" class="vh-100 bg-light d-flex flex-column justify-content-start align-items-center">
+    <h1 id="onas-text" class="mt-3">O nas</h1>
+    <p class="text-center mt-5 px-3" style="max-width: 800px;">
+        Największa firma hydrauliczna w Polsce, na rynku od 69 lat.
+    </p>
+</div>
+
+
+<div id="uslugi" class="vh-100 bg-secondary d-flex align-items-center justify-content-center">
+    <h1 id="uslugi-text">Usługi</h1>
+</div>
+
+<div id="praca" class="vh-100 bg-dark text-light d-flex align-items-center justify-content-center">
+    <h1 id="praca-text">Praca</h1>
+</div>    
+
+<section id="galeria" class="vh-100 bg-info d-flex flex-column align-items-center justify-content-center">
+    <h1 id="galeria-text">Galeria</h1>
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <img src="images/zdjecie1.jpg" class="img-fluid rounded" alt="Zdjęcie 1">
+            </div>
+            <div class="col-md-6">
+                <img src="images/zdjecie2.jpg" class="img-fluid rounded" alt="Zdjęcie 2">
+            </div>
+            <div class="col-md-6">
+                <img src="images/zdjecie3.jpg" class="img-fluid rounded" alt="Zdjęcie 3">
+            </div>
+            <div class="col-md-6">
+                <img src="images/zdjecie4.jpg" class="img-fluid rounded" alt="Zdjęcie 4">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div id="kontakt" class="vh-100 bg-warning d-flex flex-column align-items-center justify-content-center">
+    <h1 id="kontakt-text">Kontakt</h1>
+    <div class="container">
+        <div class="row g-3">
+            <!-- Zdjecie 1 -->
+            <div class="col-md-6">
+                <img src="images/zdjecieKontakt1.jpg" class="img-fluid rounded" alt="Zdjęcie Kontakt 1">
+            </div>
+            <!-- Zdjecie 2 -->
+            <div class="col-md-6">
+                <img src="images/zdjecieKontakt2.jpg" class="img-fluid rounded" alt="Zdjęcie Kontakt 2">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const translations = {
+    pl: {
+        onas: "O nas",
+        onasContent: "Największa firma hydrauliczna w Polsce, na rynku od 69 lat.",
+        uslugi: "Usługi",
+        praca: "Praca",
+        galeria: "Galeria",
+        kontakt: "Kontakt"
+    },
+    uk: {
+        onas: "Про нас",
+        onasContent: "Найбільша сантехнічна компанія в Польщі, на ринку вже 69 років.",
+        uslugi: "Послуги",
+        praca: "Робота",
+        galeria: "Галерея",
+        kontakt: "Контакт"
+    },
+    de: {
+        onas: "Über uns",
+        onasContent: "Das größte Sanitärunternehmen in Polen, seit 69 Jahren auf dem Markt.",
+        uslugi: "Dienstleistungen",
+        praca: "Arbeit",
+        galeria: "Galerie",
+        kontakt: "Kontakt"
+    }
+};
+function changeLanguage(lang) {
+    // Tłumaczenie nagłówków sekcji
+    document.getElementById('onas-text').textContent = translations[lang].onas;
+    document.getElementById('uslugi-text').textContent = translations[lang].uslugi;
+    document.getElementById('praca-text').textContent = translations[lang].praca;
+    document.getElementById('galeria-text').textContent = translations[lang].galeria;
+    document.getElementById('kontakt-text').textContent = translations[lang].kontakt;
+
+    // Tłumaczenie treści sekcji "O nas"
+    document.querySelector('#onas p').textContent = translations[lang].onasContent;
+
+    // Tłumaczenie linków w nawigacji
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks[0].textContent = translations[lang].onas;
+    navLinks[1].textContent = translations[lang].uslugi;
+    navLinks[2].textContent = translations[lang].praca;
+    navLinks[3].textContent = translations[lang].galeria;
+    navLinks[4].textContent = translations[lang].kontakt;
+}
+</script>
+</body>
+</html>
